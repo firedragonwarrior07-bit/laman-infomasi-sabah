@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laman Informasi Sabah</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Optional: Google Fonts for a modern look -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html">Laman Utama</a>
+      <a href="index.html" class="active">Laman Utama</a>
       <a href="tempat.html">Laman Menarik</a>
       <a href="peta.html">Peta Lokasi</a>
       <a href="sumber.html">Sumber Rujukan</a>
@@ -40,13 +40,21 @@
 
     <!-- Background Music -->
     <section>
-      <h3>Muzik Latar</h3>
-      <audio id="bg-music" autoplay loop>
-        <source src="Take Me Higher.mp3" type="audio/mpeg">
+      <h2>Muzik Latar</h2>
+      <audio id="bg-music" autoplay loop controls>
+        <source src="audio/take-me-higher.mp3" type="audio/mpeg">
         Browser anda tidak menyokong audio.
       </audio>
-
-      <!-- Media Controls -->
+      <!-- Optional custom controls -->
+      <!--
+      <div class="media-controls">
+        <button onclick="document.getElementById('bg-music').play()">▶️</button>
+        <button onclick="document.getElementById('bg-music').pause()">⏸️</button>
+        <button onclick="document.getElementById('bg-music').currentTime=0">⏹️</button>
+      </div>
+      -->
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -64,5 +72,4 @@
     }
   </script>
 </body>
-
 </html>
