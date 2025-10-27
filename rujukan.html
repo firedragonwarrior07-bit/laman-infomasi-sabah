@@ -2,31 +2,60 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>Sumber Rujukan</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumber Rujukan | Laman Informasi Sabah</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="banner">LAMAN INFORMASI DI SABAH</div>
+  <!-- Hero Banner -->
+  <header class="banner">
+    <div class="banner-content">
+      <h1>LAMAN INFORMASI DI SABAH</h1>
+      <p>“Negeri Di Bawah Bayu” – Keindahan Alam, Budaya, dan Destinasi Bertaraf Dunia</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">Laman Utama</a>
-	<a href="tempat.html">Laman Menarik 1</a>
-    <a href="peta.html">Peta Lokasi</a>
-    <a href="sumber.html">Sumber Rujukan</a>
+    <div class="nav-container">
+      <a href="index.html">Laman Utama</a>
+      <a href="tempat.html">Laman Menarik</a>
+      <a href="peta.html">Peta Lokasi</a>
+      <a href="sumber.html" class="active">Sumber Rujukan</a>
+      <button id="modeToggle" onclick="toggleMode()">🌙 Dark Mode</button>
+    </div>
   </nav>
-  
-  <div class="page-title">SUMBER RUJUKAN</div>
 
+  <!-- Main Content -->
+  <main class="container">
+    <h2 class="page-title">SUMBER RUJUKAN</h2>
 
+    <section>
+      <ul>
+        <li><a href="https://www.sabahtourism.com/" target="_blank" rel="noopener noreferrer">Laman Web Rasmi Sabah Tourism</a></li>
+        <li><a href="https://www.malaysia.travel/" target="_blank" rel="noopener noreferrer">Tourism Malaysia</a></li>
+        <li>Buku Pelancongan</li>
+        <li>Majalah Pelancongan</li>
+      </ul>
+    </section>
+  </main>
 
-<section>
-  <ul>
-    <li><a href="https://www.sabahtourism.com/" target="_blank" rel="noopener noreferrer">Laman Web Rasmi Sabah Tourism</a></li>
-    <li><a href="https://www.malaysia.travel/" target="_blank" rel="noopener noreferrer">Tourism Malaysia</a></li>
-    <li>Buku Pelancongan</li>
-    <li>Majalah Pelancongan</li>
-  </ul>
-</section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Laman Informasi Sabah | Dibangunkan untuk tujuan pembelajaran & rujukan</p>
+  </footer>
 
-
+  <!-- Script -->
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const btn = document.getElementById("modeToggle");
+      btn.textContent = document.body.classList.contains("dark-mode") 
+        ? "☀️ Light Mode" 
+        : "🌙 Dark Mode";
+    }
+  </script>
 </body>
 </html>
