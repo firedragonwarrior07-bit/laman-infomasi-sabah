@@ -41,54 +41,40 @@
     <section>
       <h3>Muzik Latar</h3>
       <audio id="bg-music" autoplay loop>
-        <source src="Take Me Higher.mp3" type="audio/mpeg">
-        Browser anda tidak menyokong audio.
-      </audio>
-      <div class="music-controls">
-        <button onclick="playMusic()">▶️ Main</button>
-        <button onclick="pauseMusic()">⏸️ Henti</button>
-      </div>
-    </section>
-  </main>
-   
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Laman Informasi Sabah | Dibangunkan untuk tujuan pembelajaran & rujukan</p>
-  </footer>
+  <source src="Take Me Higher.mp3" type="audio/mpeg">
+  Browser anda tidak menyokong audio.
+</audio>
 
-  <!-- Script -->
-  <script>
-    const music = document.getElementById("bg-music");
+<div class="music-controls">
+  <button onclick="playMusic()">▶️ Main</button>
+  <button onclick="pauseMusic()">⏸️ Henti</button>
+</div>
 
-    // Resume from saved time
-    window.addEventListener("load", () => {
-      const savedTime = localStorage.getItem("musicTime");
-      if (savedTime) {
-        music.currentTime = savedTime;
-      }
-      music.play().catch(() => {}); // prevent autoplay block errors
-    });
+<script>
+  const music = document.getElementById("bg-music");
 
-    // Save time before leaving
-    window.addEventListener("beforeunload", () => {
-      localStorage.setItem("musicTime", music.currentTime);
-    });
-
-    function playMusic() {
-      music.play();
+  // Resume from saved time
+  window.addEventListener("load", () => {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = savedTime;
     }
+    music.play().catch(() => {}); // avoid autoplay block errors
+  });
 
-    function pauseMusic() {
-      music.pause();
-    }
+  // Save time before leaving
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
 
-    function toggleMode() {
-      document.body.classList.toggle("dark-mode");
-      const btn = document.getElementById("modeToggle");
-      btn.textContent = document.body.classList.contains("dark-mode") 
-        ? "☀️ Light Mode" 
-        : "🌙 Dark Mode";
-    }
-  </script>
+  function playMusic() {
+    music.play();
+  }
+
+  function pauseMusic() {
+    music.pause();
+  }
+</script>
 </body>
 </html>
+
