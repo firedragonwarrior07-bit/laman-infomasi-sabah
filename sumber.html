@@ -27,9 +27,46 @@
 
   </ul>
 </section>
+	 <h3>Muzik Latar</h3>
+      <audio id="bg-music" autoplay loop>
+  <source src="Take Me Higher.mp3" type="audio/mpeg">
+  Browser anda tidak menyokong audio.
+</audio>
+
+<div class="music-controls">
+  <button onclick="playMusic()">▶️ Main</button>
+  <button onclick="pauseMusic()">⏸️ Henti</button>
+</div>
+
+<script>
+  const music = document.getElementById("bg-music");
+
+  // Resume from saved time
+  window.addEventListener("load", () => {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = savedTime;
+    }
+    music.play().catch(() => {}); // avoid autoplay block errors
+  });
+
+  // Save time before leaving
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
+
+  function playMusic() {
+    music.play();
+  }
+
+  function pauseMusic() {
+    music.pause();
+  }
+</script>
 
 
 </body>
 </html>
+
 
 
