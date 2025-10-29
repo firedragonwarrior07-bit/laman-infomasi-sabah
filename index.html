@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laman Informasi Sabah</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Optional: Google Fonts for a modern look -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +19,7 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html">Laman Utama</a>
+      <a href="index.html" class="active">Laman Utama</a>
       <a href="tempat.html">Laman Menarik</a>
       <a href="peta.html">Peta Lokasi</a>
       <a href="sumber.html">Sumber Rujukan</a>
@@ -39,30 +38,18 @@
     </section>
 
     <!-- Background Music -->
- <section>
-  <h3>Muzik Latar</h3>
-  <audio id="bg-music" autoplay loop>
-    <source src="Take Me Higher.mp3" type="audio/mpeg">
-    Browser anda tidak menyokong audio.
-  </audio>
-  <div class="music-controls">
-    <button onclick="playMusic()">▶️ Main</button>
-    <button onclick="pauseMusic()">⏸️ Henti</button>
-  </div>
-</section>
-
-<script>
-  const music = document.getElementById("bg-music");
-
-  function playMusic() {
-    music.play();
-  }
-
-  function pauseMusic() {
-    music.pause();
-  }
-</script>
-
+    <section>
+      <h3>Muzik Latar</h3>
+      <audio id="bg-music" autoplay loop>
+        <source src="Take Me Higher.mp3" type="audio/mpeg">
+        Browser anda tidak menyokong audio.
+      </audio>
+      <div class="music-controls">
+        <button onclick="playMusic()">▶️ Main</button>
+        <button onclick="pauseMusic()">⏸️ Henti</button>
+      </div>
+    </section>
+  </main>
    
   <!-- Footer -->
   <footer>
@@ -71,6 +58,30 @@
 
   <!-- Script -->
   <script>
+    const music = document.getElementById("bg-music");
+
+    // Resume from saved time
+    window.addEventListener("load", () => {
+      const savedTime = localStorage.getItem("musicTime");
+      if (savedTime) {
+        music.currentTime = savedTime;
+      }
+      music.play().catch(() => {}); // prevent autoplay block errors
+    });
+
+    // Save time before leaving
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("musicTime", music.currentTime);
+    });
+
+    function playMusic() {
+      music.play();
+    }
+
+    function pauseMusic() {
+      music.pause();
+    }
+
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
       const btn = document.getElementById("modeToggle");
